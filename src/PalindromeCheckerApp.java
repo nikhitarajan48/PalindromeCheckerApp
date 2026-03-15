@@ -34,7 +34,7 @@ public class PalindromeCheckerApp {
         // Use Case 3
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("\n--- Use Case 3 ---");
+        System.out.println("--- Use Case 3 ---");
 
         System.out.print("\nEnter a string to check: ");
         String userInput = scanner.nextLine();
@@ -50,6 +50,31 @@ public class PalindromeCheckerApp {
         } else {
             System.out.println("The string \"" + userInput + "\" is NOT a palindrome.");
         }
+        // Use Case 4
+        System.out.println("\n--- Use Case 4 ---");
+
+        System.out.print("Input : ");
+        String input4 = scanner.nextLine();
+
+        char[] chars = input4.toCharArray();
+
+        int start = 0;
+        int end = chars.length - 1;
+
+        boolean isPalindrome4 = true;
+
+        while (start < end) {
+
+            if (chars[start] != chars[end]) {
+                isPalindrome4 = false;
+                break;
+            }
+
+            start++;
+            end--;
+        }
+
+        System.out.println("Is Palindrome? : " + isPalindrome4);
 
         scanner.close();
     }
