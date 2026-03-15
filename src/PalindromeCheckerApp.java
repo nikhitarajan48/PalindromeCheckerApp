@@ -1,3 +1,5 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -121,6 +123,33 @@ public class PalindromeCheckerApp {
         }
 
         System.out.println("Is Palindrome? : " + isPalindrome6);
+
+        // Use Case 7 (Deque)
+        System.out.println("\n--- Use Case 7 ---");
+
+        System.out.print("Input : ");
+        String input7 = scanner.nextLine();
+
+        Deque<Character> deque = new ArrayDeque<>();
+
+        for (char c : input7.toCharArray()) {
+            deque.addLast(c);
+        }
+
+        boolean isPalindrome7 = true;
+
+        while (deque.size() > 1) {
+
+            char first = deque.removeFirst();
+            char last = deque.removeLast();
+
+            if (first != last) {
+                isPalindrome7 = false;
+                break;
+            }
+        }
+
+        System.out.println("Is Palindrome? : " + isPalindrome7);
 
         scanner.close();
     }
