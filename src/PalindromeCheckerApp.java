@@ -13,7 +13,7 @@ public class PalindromeCheckerApp {
         // Application details
         System.out.println("--- Use Case 1 ---");
         System.out.println("Application Name : Palindrome Checker App");
-        System.out.println("Version: 1.0");
+        System.out.println("Version:1.0");
 
         System.out.println("\nApplication started successfully.");
         System.out.println("Proceeding to next use case...");
@@ -150,6 +150,32 @@ public class PalindromeCheckerApp {
         }
 
         System.out.println("Is Palindrome? : " + isPalindrome7);
+
+        // Use Case 8 (LinkedList)
+        System.out.println("\n--- Use Case 8 ---");
+
+        System.out.print("Input : ");
+        String input8 = scanner.nextLine();
+
+        LinkedList<Character> list = new LinkedList<>();
+
+        for (char c : input8.toCharArray()) {
+            list.add(c);
+        }
+
+        boolean isPalindrome8 = true;
+
+        while (list.size() > 1) {
+
+            char first = list.removeFirst();
+            char last = list.removeLast();
+
+            if (first != last) {
+                isPalindrome8 = false;
+                break;
+            }
+        }
+        System.out.println("Is Palindrome? : " + isPalindrome8);
 
         scanner.close();
     }
