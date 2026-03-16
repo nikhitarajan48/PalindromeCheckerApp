@@ -176,9 +176,34 @@ public class PalindromeCheckerApp {
             }
         }
         System.out.println("Is Palindrome? : " + isPalindrome8);
+        // UC9 - Recursion Method
+
+        System.out.println("\n--- UC9 : Recursion Method ---");
+
+        System.out.print("Input : ");
+        String input9 = scanner.nextLine();
+
+        boolean isPalindrome9 = checkPalindrome(input9, 0, input9.length() - 1);
+
+        System.out.println("Is Palindrome? : " + isPalindrome9);
+
 
         scanner.close();
     }
+    // Recursive function for UC9
+    private static boolean checkPalindrome(String s, int start, int end) {
+
+        if (start >= end) {
+            return true;
+        }
+
+        if (s.charAt(start) != s.charAt(end)) {
+            return false;
+        }
+
+        return checkPalindrome(s, start + 1, end - 1);
+    }
 }
+
 
 
