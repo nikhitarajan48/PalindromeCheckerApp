@@ -221,7 +221,7 @@ public class PalindromeCheckerApp {
 
         System.out.println("Is Palindrome? : " + isPalindrome11);
 
-         //Use Case 12
+        //Use Case 12
         // UC12 : Strategy Pattern
         System.out.println("\n--- UC12 : Strategy Pattern ---");
 
@@ -253,6 +253,32 @@ public class PalindromeCheckerApp {
 
         System.out.println("Is Palindrome? : " + result);
 
+        // --- UC13 : Performance Comparison (UC3 vs UC4) ---
+        System.out.println("\n--- UC13 : Performance Comparison ---");
+
+        System.out.print("Input (Long string recommended for comparison): ");
+        String input13 = scanner.nextLine();
+
+// --- Approach 1: String Reversal ---
+        long startTime1 = System.nanoTime();
+        long endTime1 = System.nanoTime();
+        long duration1 = endTime1 - startTime1;
+
+// --- Approach 2: Two-Pointer ---
+        long startTime2 = System.nanoTime();
+        long endTime2 = System.nanoTime();
+        long duration2 = endTime2 - startTime2;
+
+// Display results
+        System.out.println("\n--- Performance Results ---");
+        System.out.println("String Reversal Time : " + duration1 + " ns");
+        System.out.println("Two-Pointer Time     : " + duration2 + " ns");
+
+        if (duration2 < duration1) {
+            System.out.println("Result: Two-Pointer is faster by " + (duration1 - duration2) + " ns.");
+        } else {
+            System.out.println("Result: String Reversal was faster in this instance.");
+        }
 
         scanner.close();
     }
@@ -275,6 +301,38 @@ public class PalindromeCheckerApp {
 class PalindromeService {
 
     public boolean checkPalindrome(String input) {
+
+        int start = 0;
+        int end = input.length() - 1;
+
+        while (start < end) {
+
+            if (input.charAt(start) != input.charAt(end)) {
+                return false;
+            }
+
+            start++;
+            end--;
+        }
+
+        return true;
+    }
+
+    //UC13-Recursion
+    // Method from UC3 (String Reversal)
+    public static boolean checkByReversal(String input) {
+
+        String reversed = "";
+
+        for (int i = input.length() - 1; i >= 0; i--) {
+            reversed += input.charAt(i);
+        }
+
+        return input.equalsIgnoreCase(reversed);
+    }
+
+    // Method from UC4 (Two Pointer)
+    public static boolean checkByTwoPointer(String input) {
 
         int start = 0;
         int end = input.length() - 1;
@@ -351,6 +409,7 @@ class PalindromeContext {
         return strategy.isPalindrome(input);
     }
 }
+
 
 
 
