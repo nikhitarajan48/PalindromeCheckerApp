@@ -208,6 +208,17 @@ public class PalindromeCheckerApp {
 
         System.out.println("Is Palindrome? : " + isPalindrome10);
 
+        // Use Case 11 - Service Class
+        System.out.println("\n--- UC11 : Service Class ---");
+
+        System.out.print("Input : ");
+        String input11 = scanner.nextLine();
+
+        PalindromeService service = new PalindromeService();
+
+        boolean isPalindrome11 = service.checkPalindrome(input11);
+
+        System.out.println("Is Palindrome? : " + isPalindrome11);
 
 
 
@@ -225,6 +236,28 @@ public class PalindromeCheckerApp {
         }
 
         return checkPalindrome(s, start + 1, end - 1);
+    }
+}
+
+// Service class for UC11
+class PalindromeService {
+
+    public boolean checkPalindrome(String input) {
+
+        int start = 0;
+        int end = input.length() - 1;
+
+        while (start < end) {
+
+            if (input.charAt(start) != input.charAt(end)) {
+                return false;
+            }
+
+            start++;
+            end--;
+        }
+
+        return true;
     }
 }
 
