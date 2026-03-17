@@ -188,6 +188,29 @@ public class PalindromeCheckerApp {
         System.out.println("Is Palindrome? : " + isPalindrome9);
 
 
+        // UC10 - Normalized Palindrome
+        System.out.println("\n--- UC10 : Ignore Spaces & Symbols ---");
+
+        System.out.print("Input : ");
+        String input10 = scanner.nextLine();
+
+        String normalized = input10.replaceAll("\\W", "").toLowerCase();
+
+        boolean isPalindrome10 = true;
+
+        for (int i = 0; i < normalized.length() / 2; i++) {
+
+            if (normalized.charAt(i) != normalized.charAt(normalized.length() - 1 - i)) {
+                isPalindrome10 = false;
+                break;
+            }
+        }
+
+        System.out.println("Is Palindrome? : " + isPalindrome10);
+
+
+
+
         scanner.close();
     }
     // Recursive function for UC9
